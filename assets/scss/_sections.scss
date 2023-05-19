@@ -127,18 +127,18 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills {
 
-  .progress {
-    height: 60px;
+  .skill {
+    height: 25px;
     display: block;
     background: none;
     border-radius: 0;
   }
 
-  .progress .skill {
+  .skill .skill-inner {
     padding: 0;
     margin: 0 0 6px 0;
     text-transform: uppercase;
@@ -148,22 +148,94 @@ section {
     color: $secondary;
   }
 
-  .progress .skill .val {
+  .skill .rating {
     float: right;
+    margin: 0px 35px 0 0;
     font-style: normal;
+    color: lighten($secondary, 20);
+  }
+  
+  .rating-color {
+    color: lighten($secondary, 20);
   }
 
-  .progress-bar-wrap {
-    background: lighten($secondary, 86);
-    height: 10px;
+  // .progress-bar-wrap {
+  //   background: lighten($secondary, 86);
+  //   height: 10px;
+  // }
+
+  // .progress-bar {
+  //   width: 1px;
+  //   height: 10px;
+  //   transition: .9s;
+  //   background-color: $primary;
+  // }
+
+  .skills-item {
+    margin-bottom: 30px;
   }
 
-  .progress-bar {
-    width: 1px;
-    height: 10px;
-    transition: .9s;
-    background-color: $primary;
+  .skills-flters {
+    padding:0;
+    margin:0 auto 35px auto;
+    list-style:none;
+    text-align:center;
+    background: $white;
+    border-radius: 50px;
+    padding: 2px 15px;
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 15px 8px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: uppercase;
+      color: $default;
+      margin-bottom: 5px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover, &.filter-active {
+        color: $primary;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
+
+  .skills-wrap {
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      
+      $skills_wrap_spacing: 0;
+      &::before {
+        content: "";
+        background: rgba($white, 0.5);
+        position: absolute;
+        left: $skills_wrap_spacing;
+        right: $skills_wrap_spacing;
+        top: $skills_wrap_spacing;
+        bottom: $skills_wrap_spacing;
+        transition: all ease-in-out 0.3s;
+        z-index: 2;
+        opacity: 0;
+      }
+
+      // &:hover {
+      //   &::before {
+      //     top: 0;
+      //     left: 0;
+      //     right: 0;
+      //     bottom: 0;
+      //     opacity: 1;
+      //   }
+      // }
+    }
 }
 
 /*--------------------------------------------------------------

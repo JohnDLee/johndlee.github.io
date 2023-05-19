@@ -160,6 +160,65 @@
   }
 
   /**
+   * Skills isotope and filter
+   */
+   window.addEventListener('load', () => {
+    let skillsContainer = select('.skills-container');
+    if (skillsContainer) {
+      let skillsIsotope = new Isotope(skillsContainer, {
+        itemSelector: '.skills-item'
+      });
+
+      let skillsFilters1 = select('#skills-flters-1 li', true);
+      let skillsFilters2 = select('#skills-flters-2 li', true);
+     
+      // filter 1 (hard/soft/other)
+      on('click', '#skills-flters-1 li', function(e) {
+        e.preventDefault();
+        skillsFilters1.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        // get active filter of other
+        let active2 = skillsFilters2.filter(val => val.classList.contains('filter-active'))[0].getAttribute('data-filter')
+        if (active2 == '*') {active2 = "";}
+
+        skillsIsotope.arrange({
+          filter: this.getAttribute('data-filter').concat(active2)
+        });
+        skillsIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+
+      // filter 2 (adv, prof, int, basic)
+      on('click', '#skills-flters-2 li', function(e) {
+        e.preventDefault();
+        skillsFilters2.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+        
+        // get active filter of other
+        let active1 = skillsFilters1.filter(val => val.classList.contains('filter-active'))[0].getAttribute('data-filter')
+        if (active1 == '*') {active1 = "";}
+
+        skillsIsotope.arrange({
+          filter: this.getAttribute('data-filter').concat(active1)
+        });
+
+        skillsIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+
+
+
+  /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
