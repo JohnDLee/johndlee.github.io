@@ -164,14 +164,24 @@
    */
    window.addEventListener('load', () => {
     let skillsContainer = select('.skills-container');
+    console.log(skillsContainer)
     if (skillsContainer) {
       let skillsIsotope = new Isotope(skillsContainer, {
         itemSelector: '.skills-item'
       });
+      
 
       let skillsFilters1 = select('#skills-flters-1 li', true);
       let skillsFilters2 = select('#skills-flters-2 li', true);
-     
+      
+      // filter hard first
+      skillsIsotope.arrange({
+        filter: ".filter-relevant"
+      });
+      skillsIsotope.on('arrangeComplete', function() {
+        AOS.refresh()
+      });
+
       // filter 1 (hard/soft/other)
       on('click', '#skills-flters-1 li', function(e) {
         e.preventDefault();
