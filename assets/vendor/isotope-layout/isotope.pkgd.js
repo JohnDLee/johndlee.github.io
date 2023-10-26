@@ -3123,7 +3123,6 @@ var trim = String.prototype.trim ?
     } else {
       this._hideReveal( filtered );
     }
-
     this._sort();
     this._layout();
   };

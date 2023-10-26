@@ -164,7 +164,6 @@
    */
    window.addEventListener('load', () => {
     let skillsContainer = select('.skills-container');
-    console.log(skillsContainer)
     if (skillsContainer) {
       let skillsIsotope = new Isotope(skillsContainer, {
         itemSelector: '.skills-item'
@@ -235,7 +234,11 @@
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        itemSelector: '.portfolio-item',
+        getSortData: {
+          complexity: '[complexity] parseInt',
+          time: '[time] parseInt',
+        },
       });
 
       let portfolioFilters = select('#portfolio-flters li', true);
@@ -253,6 +256,33 @@
         portfolioIsotope.on('arrangeComplete', function() {
           AOS.refresh()
         });
+      }, true);
+
+      let portfolioFilters2 = select('#portfolio-flters2 li', true);
+      // filter 2x
+      on('click', '#portfolio-flters2 li', function(e) {
+        e.preventDefault();
+        portfolioFilters2.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+        var sort = this.getAttribute("sort");
+        if (sort == "time") {
+          var sortBy = ['time', 'complexity'];
+        } else if (sort == 'complexity') {
+          var sortBy = ['complexity', 'time'];
+        }
+        let active1 = portfolioFilters.filter(val => val.classList.contains('filter-active'))[0].getAttribute('data-filter');
+        portfolioIsotope.arrange({
+          filter: active1,
+          
+          sortBy: sortBy
+        });
+
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+
       }, true);
     }
 
@@ -328,4 +358,26 @@
    */
   new PureCounter();
 
+  
+
 })()
+
+function sortcomplexity() {
+  var container = document.getElementById("portfolio-list");
+  let portfolioIsotope = new Isotope(container, {
+    itemSelector: '.portfolio-item',
+    getSortData: {
+      complexity: '[complexity] parseInt',
+      time: '[time] parseInt',
+    },
+    sortBy: ['complexity', 'time']
+  });
+  AOS.refresh()
+  // portfolioIsotope.arrange({filter: "*"});
+  // portfolioIsotope.on('arrangeComplete', function() {
+  //   AOS.refresh()
+  // });
+}
+function sorttime() {
+  
+}
