@@ -242,6 +242,9 @@ section {
 # Resume
 --------------------------------------------------------------*/
 .resume {
+  .resume-container {
+    height: 800px;
+  }
 
   .resume-title {
     font-size: 26px;
@@ -308,6 +311,12 @@ section {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio {
+
+  .portfolio-center {
+    text-align:center;
+    font-size: 18px;
+    font-weight:bold;
+  }
 
   .portfolio-item {
     margin-bottom: 30px;
