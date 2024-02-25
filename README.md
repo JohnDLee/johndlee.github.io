@@ -1,6 +1,3 @@
 # Personal Portfolio Website
 
-## TO DO
-
-- []  
-- []
+My Personal Portfolio Website located [here](www.johndlee.github.io)
