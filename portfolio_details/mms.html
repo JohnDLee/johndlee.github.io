@@ -81,7 +81,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Neural Twin for PPAS Treatment</h2>
+          <h2>Markov Stock Simulation</h2>
           <ol>
             <li><a href="../index.html">Home</a></li>
             <li>Portfolio Details</li>
@@ -102,12 +102,19 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/sgt/09a_ALL_Repaired.png" alt="">
+                  <img src="../assets/img/portfolio/mms/mm.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                    <img src="../assets/img/portfolio/sgt/05a_AS1_centerlines.png" alt="">
-                  </div>
+                  <img src="../assets/img/portfolio/mms/pagerank.png" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/mms/sharp12.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/mms/sharp6.png" alt="">
+                </div>
   
 
               </div>
@@ -119,11 +126,11 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Cardiovascular Modeling/Deep Learning/Probabilistic Modeling</li>
-                <li><strong>Affiliation</strong>: Cardiovascular Biomechanics Computation Lab at Stanford University</li>
-                <li><strong>Project date</strong>: May 2022 - Nov 2023</li>
-                <li><strong>Github URL</strong>: <a href="#">https://github.com/StanfordCBCL/StenosisTool</a></li>
-                <li><strong>Paper</strong>: <a href="#">https://arxiv.org/abs/2312.00854</a></li>
+                <li><strong>Category</strong>: Stochastic Modeling/Portfolio Management</li>
+                <li><strong>Affiliation</strong>: University of Notre Dame </li>
+                <li><strong>Project date</strong>: February 2022 - May 2022</li>
+                <li><strong>Github URL</strong>: <a href="https://github.com/JohnDLee/MarkovStockSimulation">MarkovStockSimulation</a></li>
+                <li><strong>Presentation</strong>: <a href="https://github.com/JohnDLee/MarkovStockSimulation/blob/main/Final%20Project/report/FinalSlides.pptx">MMS Presentation</a></li>
               </ul>
             </div>
             
@@ -131,7 +138,7 @@
           <div class="portfolio-description">
             <h2>Description</h2>
             <p>
-              In this project, I prototype a probabilistic treatment guidance tool pipeline for usage in pre-operative surgical planning and intraoperative path guidance of balloon angioplasty surgery. The substantial computational cost of high-fidelity models in numerical hemodynamics has, so far, relegated their use mainly to offline treatment planning. New breakthroughs in data-driven architectures and optimization techniques for fast surrogate modeling provide an exciting opportunity to overcome these limitations, enabling the use of such technology for time-critical decisions. We discuss an application to the repair of multiple stenosis in peripheral pulmonary artery disease through either transcatheter pulmonary artery rehabilitation or surgery, where it is of interest to achieve desired pressures and flows at specific locations in the pulmonary artery tree, while minimizing the risk for the patient. Since different degrees of success can be achieved in practice during treatment, we formulate the problem in probability, and solve it through a sample-based approach. We propose a new offline-online pipeline for probabilistic real-time treatment planning which combines offline assimilation of boundary conditions, model reduction, and training dataset generation with online estimation of marginal probabilities, possibly conditioned on the degree of augmentation observed in already repaired lesions. Moreover, we propose a new approach for the parametrization of arbitrarily shaped vascular repairs through iterative corrections of a zero-dimensional approximant.
+              In this project, I work with Trevor Komeiji to employ Hidden Markov Models to model stock market movement. Based on simulated results for several strategies, we implement a page rank algorithm to determine the quantity of each stock (in our simplified basket of stocks) to purchase, rebalancing every month. Returns and sharpe ratio of each strategy was reported. This project was completed for Spring 2022 Stochastic Modeling course.
             </p>
           </div>
         </div>
